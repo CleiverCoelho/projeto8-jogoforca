@@ -20,12 +20,14 @@ export default function App() {
   const stateErros = React.useState(0);
   const statePalavraSorteada = React.useState([]);
   const stateUnderline = React.useState([]);
+  const stateTentativas = React.useState([]);
 
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
   const [palavraSorteada, setPalavra] = statePalavraSorteada;
   const [forcas, setForcas] = stateForca;
   const [qtdErros, setQtdErros] = stateErros;
+  const [tentativas, setTentativas] = stateTentativas;
 
   console.log(palavraSorteada);
 
@@ -45,6 +47,7 @@ export default function App() {
         palavraSorteada={palavraSorteada}
         underline={stateUnderline}
         erros={stateErros}
+        tentativas={stateTentativas}
         ></Letras>
     </div>
   );
