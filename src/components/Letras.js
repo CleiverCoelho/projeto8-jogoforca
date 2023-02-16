@@ -46,7 +46,7 @@ export default function Letras(props){
       <div className="letras">
         {arrayLetras.map( (letra, index) => {
           return (
-            <button onClick={ () => escolherLetra(letra) } disabled={checkSentence() ? true : checkEnable(letra)} key={index}>{letra}</button>
+            <button data-test="letter" onClick={ () => escolherLetra(letra) } disabled={checkSentence() ? true : checkEnable(letra)} key={index}>{letra}</button>
           ) 
         })}
       </div>

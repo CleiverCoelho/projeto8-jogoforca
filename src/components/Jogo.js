@@ -29,10 +29,10 @@ export default function Jogo({imagem, forcas : [forcas, setForcas], qtdErros: [e
     // underlineArray eh uma props que vem de um estado do App
     return (
         <div className="jogo">
-          <img src={imagem}></img>
+          <img data-test="game-image" src={imagem}></img>
           <div className="config">
-              <button onClick={escolherPalavra}>Escolher Palavra</button>
-              <div className={`underlines`}>
+              <button data-test="choose-word" onClick={escolherPalavra}>Escolher Palavra</button>
+              <div data-test="word" className={`underlines`}>
                 {underlineArray}
               </div>
           </div>
