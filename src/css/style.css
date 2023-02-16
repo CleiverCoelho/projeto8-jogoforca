@@ -1,0 +1,66 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+.jogo {
+    padding: 50px;
+}
+
+.jogo {
+    display: flex;
+    justify-content: space-between;
+
+    height: 60%;
+    width: 100%;
+}
+
+.jogo img{
+    width: 400px;
+    height: 468px;
+}
+
+.config button {
+    width: 200px;
+    height: 60px;
+    background-color: #27AE60;
+
+    color: #FFFFFF;
+    border: none;
+    margin-left: 150px;
+    border-radius: 8px;
+}
+
+.config {
+    width: 400px;
+    height: 468px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.letras {
+    width: 650px;
+    margin-top: 200px;
+    margin: 25px auto;
+    height: 120px;
+    /* background-color: blue; */
+    text-align: center;
+}
+
+.underlines {
+    width: 368px;
+    height: 68px;
+
+    font-size: 50px;
+    font-weight: 700px;
+}
+
+.letras button{
+    width: 40px;
+    height: 40px;
+    margin: 5px 5px;
+}
