@@ -27,6 +27,9 @@ export default function App() {
   const [forcas, setForcas] = stateForca;
   const [qtdErros, setQtdErros] = stateErros;
 
+  console.log(palavraSorteada);
+
+
   return (
     <div className="App">
       <Jogo 
@@ -41,6 +44,7 @@ export default function App() {
         letras={alfabeto}
         palavraSorteada={palavraSorteada}
         underline={stateUnderline}
+        erros={stateErros}
         ></Letras>
     </div>
   );

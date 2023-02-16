@@ -12,15 +12,13 @@ export default function Jogo({imagem, forcas : [forcas, setForcas], qtdErros: [e
 
         for(let i = 0; i < palavraEscolhida.length; i++){
             arrayPalavra.push(palavraEscolhida[i]);
-            novoUnderline.push("_ ");
+            novoUnderline.push(" _");
         }
 
         setUnderline(novoUnderline);
         setPalavra(arrayPalavra);
         setQtdErros(0)
     }
-
-
 
     function comparador(){
         return Math.random() - 0.5;

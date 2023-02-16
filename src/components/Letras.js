@@ -3,21 +3,18 @@ export default function Letras(props){
     const arrayLetras = props.letras;
     const palavraSorteada = props.palavraSorteada;
     const [underline, setUnderline] = props.underline;
+    const [qtdErros, setQtdErros] = props.erros;
 
-
-    console.log(palavraSorteada);
 
     function escolherLetra(letra){
-        const indexLetras = [];
         if(palavraSorteada.includes(letra)){
-            for(let i in palavraSorteada){
-                if(palavraSorteada[i] == letra) indexLetras.push(i);
-            }
-
-            const novoUnderline = underline.filter( (underline, index) => indexLetras[index] == index ? letra : underline );
-            console.log(novoUnderline);
+            const novoUnderline = underline.map( (caractere, index) => palavraSorteada[index] == letra ? " " + letra : caractere);
+            setUnderline(novoUnderline);
+        }else{
+            setQtdErros(qtdErros + 1);
         }
     }
+
   
     return (
       <div className="letras">
