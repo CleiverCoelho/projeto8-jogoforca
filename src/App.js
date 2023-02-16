@@ -41,6 +41,7 @@ export default function App() {
         palavras={listaPalavras}
         escolhaPalavra={statePalavraSorteada}
         underline = {stateUnderline}
+        tentativas={stateTentativas}
       ></Jogo>
       <Letras 
         letras={alfabeto}

@@ -9,6 +9,7 @@ export default function Letras(props){
 
     function escolherLetra(letra){
         if(palavraSorteada.includes(letra)){
+            // modifica o array underline para mostra a letra acertada
             const novoUnderline = underline.map( (caractere, index) => palavraSorteada[index] == letra ? " " + letra : caractere);
             setUnderline(novoUnderline);
         }else{
@@ -19,18 +20,33 @@ export default function Letras(props){
     }
 
     function checkEnable(letra){
-        if(tentativas.includes(letra)){
-            return true;
-        }
 
-        return false;
+      if(tentativas.includes(letra)){
+        return true;
+      }else{
+        if(qtdErros == 0){
+          return false;
+        }
+      }
+      return false;
     }
 
+    function checkSentence(letra){
+      const inicioJogo = palavraSorteada.length == 0;
+      const perdeuJogo = qtdErros == 6;
+
+      if(inicioJogo || perdeuJogo){
+        return true;
+      }
+      return false;
+    }
+
+    // botao desabilitado no inicio e fim do jogo, muda de estado enquanto o jogo nao termina 
     return (
       <div className="letras">
         {arrayLetras.map( (letra, index) => {
           return (
-            <button onClick={ () => escolherLetra(letra) } disabled={palavraSorteada.length == 0 ? true : checkEnable(letra)} key={index}>{letra}</button>
+            <button onClick={ () => escolherLetra(letra) } disabled={checkSentence() ? true : checkEnable(letra)} key={index}>{letra}</button>
           ) 
         })}
       </div>
