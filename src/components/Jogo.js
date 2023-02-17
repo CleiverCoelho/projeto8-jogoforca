@@ -14,7 +14,7 @@ export default function Jogo({imagem, forcas : [forcas, setForcas],
         // transformando string selecionada em um array para facilitar manipulacao
         for(let i = 0; i < palavraEscolhida.length; i++){
             arrayPalavra.push(palavraEscolhida[i]);
-            novoUnderline.push(" _");
+            novoUnderline.push("_");
         }
 
         // mudando estado para exibir o underline na tela
