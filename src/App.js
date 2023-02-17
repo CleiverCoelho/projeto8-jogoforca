@@ -34,7 +34,7 @@ export default function App() {
   // console.log(palavraSorteada);
 
   function fimDoJogo(underline){
-    const novoLetrasFaltam = underline.map( caractere => caractere === "_" ? true : false );
+    const novoLetrasFaltam = underline.map( caractere => caractere === " _" ? true : false );
     for(let i in novoLetrasFaltam){
       if(novoLetrasFaltam[i]){
         return false;
