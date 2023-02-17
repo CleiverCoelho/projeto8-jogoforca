@@ -1,6 +1,9 @@
 import palavras from "../palavras";
 
-export default function Jogo({imagem, forcas : [forcas, setForcas], qtdErros: [erros, setQtdErros], palavras, escolhaPalavra: [palavraSorteada, setPalavra], underline: [underlineArray, setUnderline], tentativas: [tentativas, setTentativas]}){
+export default function Jogo({imagem, forcas : [forcas, setForcas], 
+  qtdErros: [erros, setQtdErros], palavras, escolhaPalavra: [palavraSorteada, setPalavra], 
+  underline: [underlineArray, setUnderline], tentativas: [tentativas, setTentativas], fimJogo}){
+
 
     function escolherPalavra () {
         const palavraEscolhida = palavras.sort(comparador).pop();
@@ -21,6 +24,14 @@ export default function Jogo({imagem, forcas : [forcas, setForcas], qtdErros: [e
         setQtdErros(0);
     }
 
+    function checaVitoria(){
+      if(erros === 6){
+        return "vermelho"
+      }else{
+        return null
+      }
+    }
+
     function comparador(){
         return Math.random() - 0.5;
       }
@@ -32,8 +43,8 @@ export default function Jogo({imagem, forcas : [forcas, setForcas], qtdErros: [e
           <img data-test="game-image" src={imagem}></img>
           <div className="config">
               <button data-test="choose-word" onClick={escolherPalavra}>Escolher Palavra</button>
-              <div data-test="word" className={`underlines`}>
-                {underlineArray}
+              <div data-test="word" className={`underlines ${fimJogo(underlineArray) ? "verde" : checaVitoria()}`}>
+                {erros === 6 ? palavraSorteada : underlineArray}
               </div>
           </div>
         </div>

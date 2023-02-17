@@ -21,16 +21,27 @@ export default function App() {
   const statePalavraSorteada = React.useState([]);
   const stateUnderline = React.useState([]);
   const stateTentativas = React.useState([]);
+  const stateFimJogo = React.useState([]);
 
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
   const [palavraSorteada, setPalavra] = statePalavraSorteada;
   const [forcas, setForcas] = stateForca;
   const [qtdErros, setQtdErros] = stateErros;
+  const [underline, setUnderline] = stateUnderline;
   const [tentativas, setTentativas] = stateTentativas;
 
-  console.log(palavraSorteada);
+  // console.log(palavraSorteada);
 
+  function fimDoJogo(underline){
+    const novoLetrasFaltam = underline.map( caractere => caractere === " _" ? true : false );
+    for(let i in novoLetrasFaltam){
+      if(novoLetrasFaltam[i]){
+        return false;
+      }
+    }
+    return true;
+  }
 
   return (
     <div className="App">
@@ -42,6 +53,7 @@ export default function App() {
         escolhaPalavra={statePalavraSorteada}
         underline = {stateUnderline}
         tentativas={stateTentativas}
+        fimJogo={fimDoJogo}
       ></Jogo>
       <Letras 
         letras={alfabeto}
@@ -49,6 +61,7 @@ export default function App() {
         underline={stateUnderline}
         erros={stateErros}
         tentativas={stateTentativas}
+        fimJogo={fimDoJogo}
         ></Letras>
     </div>
   );

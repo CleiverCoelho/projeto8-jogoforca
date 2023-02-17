@@ -6,11 +6,11 @@ export default function Letras(props){
     const [qtdErros, setQtdErros] = props.erros;
     const [tentativas, setTentativas] = props.tentativas;
 
-
+    // console.log("Declarado fim do jogo: " + props.fimJogo(underline));
     function escolherLetra(letra){
         if(palavraSorteada.includes(letra)){
             // modifica o array underline para mostra a letra acertada
-            const novoUnderline = underline.map( (caractere, index) => palavraSorteada[index] == letra ? " " + letra : caractere);
+            const novoUnderline = underline.map( (caractere, index) => palavraSorteada[index] === letra ? " " + letra : caractere);
             setUnderline(novoUnderline);
         }else{
             setQtdErros(qtdErros + 1);
@@ -24,7 +24,7 @@ export default function Letras(props){
       if(tentativas.includes(letra)){
         return true;
       }else{
-        if(qtdErros == 0){
+        if(qtdErros === 0){
           return false;
         }
       }
@@ -32,10 +32,11 @@ export default function Letras(props){
     }
 
     function checkSentence(letra){
-      const inicioJogo = palavraSorteada.length == 0;
-      const perdeuJogo = qtdErros == 6;
+      const inicioJogo = palavraSorteada.length === 0;
+      const perdeuJogo = qtdErros === 6;
+      const fimDoJogo = props.fimJogo(underline);
 
-      if(inicioJogo || perdeuJogo){
+      if(inicioJogo || perdeuJogo || fimDoJogo){
         return true;
       }
       return false;
