@@ -1,4 +1,8 @@
+import React from "react";
+
 export default function Letras(props){
+
+    const [chute, setChute] = React.useState("");
 
     const arrayLetras = props.letras;
     const palavraSorteada = props.palavraSorteada;
@@ -17,7 +21,7 @@ export default function Letras(props){
         }
         const novaTentivas = [...tentativas, letra];
         setTentativas(novaTentivas);
-    }
+      }
 
     function checkEnable(letra){
 
@@ -42,6 +46,21 @@ export default function Letras(props){
       return false;
     }
 
+    function verificaChute(){
+      const arrayChute = palavraSorteada.join("");
+      if(arrayChute === chute){
+        console.log(`Palavra sorteada: ${palavraSorteada} === Chute: ${arrayChute}`)
+        const novoUnderline = underline.map((caractere, index) => palavraSorteada[index]);
+        setUnderline(novoUnderline);
+      }else{
+        setQtdErros(6);
+      }
+      console.log(`Palavra sorteada: ${palavraSorteada} === Chute: ${chute}`);
+      setChute("");
+    }
+    console.log(palavraSorteada);
+
+
     // botao desabilitado no inicio e fim do jogo, muda de estado enquanto o jogo nao termina 
     return (
       <div className="letras">
@@ -50,6 +69,16 @@ export default function Letras(props){
             <button data-test="letter" onClick={ () => escolherLetra(letra) } disabled={checkSentence() ? true : checkEnable(letra)} key={index}>{letra}</button>
           ) 
         })}
+
+        <div className="chute">
+          <input 
+            data-test="guess-input"
+            placeholder="Já sei a resposta..." 
+            value={chute} 
+            disabled={checkSentence() ? true : false}
+            onChange={(event) => setChute(event.target.value)}></input>
+            <button data-test="guess-button" disabled={checkSentence() ? true : false} onClick={verificaChute}>chutar</button>
+        </div>
       </div>
     )
   }

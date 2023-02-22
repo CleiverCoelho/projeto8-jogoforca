@@ -28,7 +28,7 @@ export default function Jogo({imagem, forcas : [forcas, setForcas],
       if(erros === 6){
         return "vermelho"
       }else{
-        return null
+        return null;
       }
     }
 
@@ -37,6 +37,8 @@ export default function Jogo({imagem, forcas : [forcas, setForcas],
       }
 
     // Jogo (imagem da forca, botão de iniciar, palavra do jogo)
+    // caso ele vença mostra o array underline com a palavra correta em verde
+    // caso ele perca, revela a palavra sorteada no inicio em vermelho
     // underlineArray eh uma props que vem de um estado do App
     return (
         <div className="jogo">
