@@ -99,36 +99,41 @@
 @media(max-width: 415px){
 
     .underlines{
-        width: 300px;
+        width: 100%;
         height: 60px;
-        margin-top: 10px;
     }
 
     .jogo{
         width: 100%;
         height: 500px;
+        text-align: start;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        text-align: center;
     }
     .config{
-        margin-bottom: 20px;
+        width: 300px;
+        height: 250px;
+        margin-bottom: 40px;
+        justify-content: center;
+        align-items: center;
+
     }
     .jogo img{
         width: 300px;
         height: 320px;
     }
     .config button{
-        width: 150px;
+        width: 300px;
         height: 30px;
-        margin-top: 10px;
+        margin-top: 0px;
+        margin-left: 0px;
     }
 
     .letras{
         width: 300px;
         height: auto;
-        margin-top: 0px;
+        margin-top: 40px;
     }
     .chute{
         margin-top: 20px;
